@@ -13,9 +13,4 @@ class BadgeTest {
         assertNotNull(badge);
         assertEquals("<svg", badge.substring(0, 4));
     }
-
-    @Test
-    void exampleTest(){
-        assertEquals(23, 32);
-    }
 }
