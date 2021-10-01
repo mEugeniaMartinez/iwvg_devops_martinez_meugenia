@@ -1,7 +1,6 @@
 package es.upm.miw.iwvg_devops.code;
 
-public class Fraction {
-
+class Fraction {
     private int numerator;
     private int denominator;
 
@@ -41,4 +40,30 @@ public class Fraction {
                 ", denominator=" + denominator +
                 '}';
     }
+
+    public boolean isProper(){
+        return this.getNumerator() < this.getDenominator();
+    }
+
+    public boolean isImproper(){
+        return this.getNumerator() >= this.getDenominator();
+    }
+
+    public Fraction add(Fraction fraction){
+        int resultNumerator = this.numerator * fraction.denominator +
+                fraction.numerator * this.denominator;
+        int resultDenominator = this.denominator * fraction.denominator;
+        return new Fraction(resultNumerator, resultDenominator);
+    }
+
+    public Fraction multiply(Fraction fraction){
+        return new Fraction(this.numerator * fraction.numerator,
+                this.denominator * fraction.denominator);
+    }
+
+    public Fraction divide(Fraction fraction){
+        return new Fraction(this.numerator * fraction.denominator,
+                this.denominator * fraction.numerator);
+    }
+
 }
