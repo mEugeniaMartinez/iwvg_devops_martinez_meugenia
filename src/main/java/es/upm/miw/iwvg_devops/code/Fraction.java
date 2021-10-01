@@ -46,24 +46,41 @@ class Fraction {
     }
 
     public boolean isImproper(){
-        return this.getNumerator() >= this.getDenominator();
+        return this.getNumerator() > this.getDenominator();
+    }
+
+    public boolean isEquivalent(Fraction fraction){
+        return this.numerator * fraction.denominator ==
+                this.denominator * fraction.numerator;
+    }
+
+    public Fraction simplify(){
+        int mcd = this.mcd(this.numerator, this.denominator);
+        this.numerator = this.numerator / mcd;
+        this.denominator = this.denominator / mcd;
+        return this;
+    }
+
+    public int mcd(int number1, int number2){
+        if (number2 == 0) return number1;
+        return mcd(number2, number1 % number2);
     }
 
     public Fraction add(Fraction fraction){
         int resultNumerator = this.numerator * fraction.denominator +
                 fraction.numerator * this.denominator;
         int resultDenominator = this.denominator * fraction.denominator;
-        return new Fraction(resultNumerator, resultDenominator);
+        return new Fraction(resultNumerator, resultDenominator).simplify();
     }
 
     public Fraction multiply(Fraction fraction){
         return new Fraction(this.numerator * fraction.numerator,
-                this.denominator * fraction.denominator);
+                this.denominator * fraction.denominator).simplify();
     }
 
     public Fraction divide(Fraction fraction){
         return new Fraction(this.numerator * fraction.denominator,
-                this.denominator * fraction.numerator);
+                this.denominator * fraction.numerator).simplify();
     }
 
 }
