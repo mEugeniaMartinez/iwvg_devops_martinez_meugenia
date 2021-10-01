@@ -44,4 +44,11 @@ public class FractionTest {
     void toStringTest(){
         assertEquals("Fraction{numerator=2, denominator=5}", fraction.toString());
     }
+
+
+    @Test
+    void isProper(){
+
+    }
+
 }
