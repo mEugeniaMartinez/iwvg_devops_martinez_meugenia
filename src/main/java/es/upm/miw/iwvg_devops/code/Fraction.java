@@ -54,6 +54,10 @@ class Fraction {
                 this.denominator * fraction.numerator;
     }
 
+    public boolean isNegative() {
+        return this.numerator < 0 || this.denominator < 0;
+    }
+
     public int mcd(int number1, int number2){
         if (number2 == 0) return number1;
         return mcd(number2, number1 % number2);
@@ -68,6 +72,13 @@ class Fraction {
 
     public Fraction add(Fraction fraction){
         int resultNumerator = this.numerator * fraction.denominator +
+                fraction.numerator * this.denominator;
+        int resultDenominator = this.denominator * fraction.denominator;
+        return new Fraction(resultNumerator, resultDenominator).simplify();
+    }
+
+    public Fraction subtract(Fraction fraction){
+        int resultNumerator = this.numerator * fraction.denominator -
                 fraction.numerator * this.denominator;
         int resultDenominator = this.denominator * fraction.denominator;
         return new Fraction(resultNumerator, resultDenominator).simplify();

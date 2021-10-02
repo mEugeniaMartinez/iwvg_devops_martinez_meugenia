@@ -84,6 +84,13 @@ public class FractionTest {
     }
 
     @Test
+    void subtract(){
+        Fraction result = fraction.subtract(new Fraction(1,3));
+        assertEquals(1, result.getNumerator());
+        assertEquals(15, result.getDenominator());
+    }
+
+    @Test
     void multiply(){
         Fraction result = fraction.multiply(fraction);
         assertEquals(4, result.getNumerator());
