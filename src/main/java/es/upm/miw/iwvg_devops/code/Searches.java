@@ -22,8 +22,7 @@ public class Searches {
     public Stream<String> findUserIdByAllProperFraction() {
         return new UsersDatabase().findAll()
                 .filter(user -> user.getFractions().stream()
-                        .allMatch(Fraction::isProper)
-                ).map(User::getId);
+                        .allMatch(Fraction::isProper)).map(User::getId);
     }
 
     public Stream<Double> findDecimalFractionByNegativeSignFraction() {
