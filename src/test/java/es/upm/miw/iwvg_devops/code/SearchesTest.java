@@ -1,21 +1,23 @@
 package es.upm.miw.iwvg_devops.code;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
 import java.util.stream.Collectors;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SearchesTest {
 
     @Test
-    void findUserFamilyNameInitialBySomeProperFraction(){
+    void findUserFamilyNameInitialBySomeProperFraction() {
         assertEquals(List.of("F.", "B.", "L.", "B."), new Searches().
                 findUserFamilyNameInitialBySomeProperFraction()
                 .collect(Collectors.toList()));
     }
 
     @Test
-    void findFractionSubtractionByUserName(){
+    void findFractionSubtractionByUserName() {
         assertEquals(new Fraction(11, 30).getNumerator(),
                 new Searches().findFractionSubtractionByUserName("Ana").getNumerator());
         assertEquals(new Fraction(11, 30).getDenominator(),
@@ -23,7 +25,7 @@ public class SearchesTest {
     }
 
     @Test
-    void findUserIdByAllProperFraction(){
+    void findUserIdByAllProperFraction() {
         assertEquals(List.of(), new Searches().findUserIdByAllProperFraction()
                 .collect(Collectors.toList()));
     }

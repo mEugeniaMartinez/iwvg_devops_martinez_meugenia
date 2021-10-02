@@ -41,15 +41,15 @@ class Fraction {
                 '}';
     }
 
-    public boolean isProper(){
+    public boolean isProper() {
         return this.getNumerator() < this.getDenominator();
     }
 
-    public boolean isImproper(){
+    public boolean isImproper() {
         return this.getNumerator() > this.getDenominator();
     }
 
-    public boolean isEquivalent(Fraction fraction){
+    public boolean isEquivalent(Fraction fraction) {
         return this.numerator * fraction.denominator ==
                 this.denominator * fraction.numerator;
     }
@@ -58,38 +58,38 @@ class Fraction {
         return this.numerator < 0 || this.denominator < 0;
     }
 
-    public int mcd(int number1, int number2){
+    public int mcd(int number1, int number2) {
         if (number2 == 0) return number1;
         return mcd(number2, number1 % number2);
     }
 
-    public Fraction simplify(){
+    public Fraction simplify() {
         int mcd = mcd(this.numerator, this.denominator);
         this.numerator = this.numerator / mcd;
         this.denominator = this.denominator / mcd;
         return this;
     }
 
-    public Fraction add(Fraction fraction){
+    public Fraction add(Fraction fraction) {
         int resultNumerator = this.numerator * fraction.denominator +
                 fraction.numerator * this.denominator;
         int resultDenominator = this.denominator * fraction.denominator;
         return new Fraction(resultNumerator, resultDenominator).simplify();
     }
 
-    public Fraction subtract(Fraction fraction){
+    public Fraction subtract(Fraction fraction) {
         int resultNumerator = this.numerator * fraction.denominator -
                 fraction.numerator * this.denominator;
         int resultDenominator = this.denominator * fraction.denominator;
         return new Fraction(resultNumerator, resultDenominator).simplify();
     }
 
-    public Fraction multiply(Fraction fraction){
+    public Fraction multiply(Fraction fraction) {
         return new Fraction(this.numerator * fraction.numerator,
                 this.denominator * fraction.denominator).simplify();
     }
 
-    public Fraction divide(Fraction fraction){
+    public Fraction divide(Fraction fraction) {
         return new Fraction(this.numerator * fraction.denominator,
                 this.denominator * fraction.numerator).simplify();
     }

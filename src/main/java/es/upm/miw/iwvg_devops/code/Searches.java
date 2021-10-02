@@ -4,7 +4,7 @@ import java.util.stream.Stream;
 
 public class Searches {
 
-    public Fraction findFractionSubtractionByUserName(String name){
+    public Fraction findFractionSubtractionByUserName(String name) {
         return new UsersDatabase().findAll()
                 .filter(user -> name.equals(user.getName()))
                 .flatMap(user -> user.getFractions().stream())

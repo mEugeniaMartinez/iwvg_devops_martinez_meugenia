@@ -13,7 +13,7 @@ class UserTest {
     private List<Fraction> fractions;
 
     @BeforeEach
-    void initializeUser(){
+    void initializeUser() {
         fractions = new ArrayList<>();
         fractions.add(new Fraction(3, 6));
         fractions.add(new Fraction(10, 5));
@@ -21,39 +21,39 @@ class UserTest {
     }
 
     @Test
-    void getId(){
+    void getId() {
         assertEquals("id3", user.getId());
     }
 
     @Test
-    void getName(){
+    void getName() {
         assertEquals("Name3", user.getName());
     }
 
     @Test
-    void setName(){
+    void setName() {
         user.setName("Name6");
         assertEquals("Name6", user.getName());
     }
 
     @Test
-    void getFamilyName(){
+    void getFamilyName() {
         assertEquals("FamilyName3", user.getFamilyName());
     }
 
     @Test
-    void setFamilyName(){
+    void setFamilyName() {
         user.setFamilyName("FamilyName6");
         assertEquals("FamilyName6", user.getFamilyName());
     }
 
     @Test
-    void getFractions(){
+    void getFractions() {
         assertEquals(fractions, user.getFractions());
     }
 
     @Test
-    void setFractions(){
+    void setFractions() {
         List<Fraction> newFractions = new ArrayList<>();
         newFractions.add(new Fraction(1, 4));
         newFractions.add(new Fraction(1, 5));
@@ -62,7 +62,7 @@ class UserTest {
     }
 
     @Test
-    void addFraction(){
+    void addFraction() {
         fractions.add(new Fraction(3, 3));
         user.addFraction(new Fraction(3, 3));
         assertEquals(fractions, user.getFractions());
@@ -79,7 +79,7 @@ class UserTest {
     }
 
     @Test
-    void toStringTest(){
+    void toStringTest() {
         assertEquals("User{id='id3', name='Name3', familyName='FamilyName3'" +
                         ", fractions=[Fraction{numerator=3, denominator=6}, Fraction{numerator=10, denominator=5}]}",
                 user.toString());
